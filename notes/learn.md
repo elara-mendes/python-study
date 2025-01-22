@@ -379,3 +379,220 @@ Lists are one of the most commonly used data structures in Python, designed to s
 - Use list comprehensions for concise and readable code.
 
 ---
+
+A **while loop** in Python is used to repeatedly execute a block of code as long as a specified condition is true. Here's how it works:
+
+- The **condition** is evaluated before each iteration.
+- If the condition is `True`, the code inside the loop runs.
+- If the condition becomes `False`, the loop stops.
+
+### Syntax:
+```python
+while condition:
+    # Code to execute
+```
+
+### Example:
+```python
+count = 0
+while count < 5:
+    print(count)
+    count += 1
+```
+This will print numbers 0 to 4.
+
+### Key Points:
+1. **Infinite Loops**: Be cautious of loops where the condition is always `True`. This creates an infinite loop.
+   ```python
+   while True:
+       print("This will run forever!")
+   ```
+2. **Break Statement**: Use `break` to exit a loop early.
+   ```python
+   while True:
+       print("Running")
+       break  # Exits the loop
+   ```
+3. **Continue Statement**: Use `continue` to skip the rest of the code in the current iteration.
+   ```python
+   count = 0
+   while count < 5:
+       count += 1
+       if count == 3:
+           continue
+       print(count)  # Skips printing 3
+   ```
+
+It's ideal for situations where the number of iterations isn't known in advance.
+
+Python provides several string methods that are useful for formatting and manipulating text. Here's a summary of some **common methods** like `title()` and `capitalize()`:
+
+### 1. **`title()`**
+- Converts the first letter of each word to uppercase and the rest to lowercase.
+- Useful for formatting titles or names.
+- Example:
+  ```python
+  text = "hello world"
+  print(text.title())  # Output: "Hello World"
+  ```
+
+### 2. **`capitalize()`**
+- Capitalizes the first letter of the entire string and makes the rest lowercase.
+- Example:
+  ```python
+  text = "hello WORLD"
+  print(text.capitalize())  # Output: "Hello world"
+  ```
+
+### 3. **`upper()`**
+- Converts all characters to uppercase.
+- Example:
+  ```python
+  text = "hello"
+  print(text.upper())  # Output: "HELLO"
+  ```
+
+### 4. **`lower()`**
+- Converts all characters to lowercase.
+- Example:
+  ```python
+  text = "HELLO"
+  print(text.lower())  # Output: "hello"
+  ```
+
+### 5. **`swapcase()`**
+- Swaps the case of each character (uppercase becomes lowercase and vice versa).
+- Example:
+  ```python
+  text = "Hello World"
+  print(text.swapcase())  # Output: "hELLO wORLD"
+  ```
+
+### 6. **`strip()`**
+- Removes leading and trailing whitespace (or specified characters).
+- Example:
+  ```python
+  text = "  hello  "
+  print(text.strip())  # Output: "hello"
+  ```
+
+### 7. **`replace(old, new)`**
+- Replaces all occurrences of a substring with another substring.
+- Example:
+  ```python
+  text = "hello world"
+  print(text.replace("world", "Python"))  # Output: "hello Python"
+  ```
+
+### 8. **`startswith(prefix)` / `endswith(suffix)`**
+- Checks if a string starts or ends with a specific substring.
+- Example:
+  ```python
+  text = "hello world"
+  print(text.startswith("hello"))  # Output: True
+  print(text.endswith("world"))    # Output: True
+  ```
+
+### 9. **`find(substring)`**
+- Returns the index of the first occurrence of a substring, or `-1` if not found.
+- Example:
+  ```python
+  text = "hello world"
+  print(text.find("world"))  # Output: 6
+  ```
+
+These methods make it easy to manipulate and format strings in Python! Let me know if you'd like examples of more methods.
+
+The `dir()` command in Python is a built-in function that is used to get a list of attributes (methods, variables, and other properties) of an object. It is particularly helpful for exploring what you can do with an object or module.
+
+### Key Points:
+1. **Usage**:  
+   ```python
+   dir([object])
+   ```
+   - Without arguments, `dir()` returns a list of names in the current scope (variables, functions, etc.).
+   - With an argument (object), `dir(object)` returns a list of attributes and methods of that object.
+
+2. **Examples**:
+   - **List current scope**:
+     ```python
+     a = 10
+     print(dir())  # Lists all variables, functions, etc. in the current scope
+     ```
+   - **Explore string methods**:
+     ```python
+     print(dir(str))  # Lists all methods and attributes of the string class
+     ```
+     Output (partial):
+     ```
+     ['capitalize', 'casefold', 'center', 'count', ...]
+     ```
+   - **Explore a module**:
+     ```python
+     import math
+     print(dir(math))  # Lists all functions and constants in the math module
+     ```
+
+3. **Practical Uses**:
+   - **Discover functionality**: Use it to find available methods and attributes of a class, object, or module.
+   - **Debugging**: Check what variables or functions are defined in the current scope.
+   - **Learning**: Explore built-in methods for Python objects (e.g., `list`, `dict`, `set`, etc.).
+
+4. **Limitations**:
+   - `dir()` does not always provide a complete list of attributes, especially for objects that use dynamic attributes (e.g., objects with custom `__getattr__` methods).
+   - It doesn't show private methods (those starting with `_`) unless explicitly defined in the object.
+
+### Summary:
+The `dir()` command is a handy tool for exploring Python objects, classes, and modules. It's a quick way to learn about their available attributes and methods.
+
+The `help()` function in Python is a built-in tool for getting detailed documentation about objects, modules, functions, methods, classes, and more. It is particularly useful for learning and understanding Python's features or third-party libraries.
+
+### Key Points About `help()`:
+1. **Usage**:  
+   ```python
+   help([object])
+   ```
+   - Without arguments, it starts an interactive help session.
+   - With an argument (object, module, or function), it displays detailed information about the specified item.
+
+2. **Examples**:
+   - **Start interactive help**:
+     ```python
+     help()  # Opens an interactive help console
+     ```
+     You can type keywords like `str`, `list`, or module names like `math` to explore.
+   - **Get help about an object**:
+     ```python
+     help(str)  # Displays documentation about the string class
+     ```
+   - **Learn about a specific method**:
+     ```python
+     help(str.upper)  # Shows what the `upper()` method does
+     ```
+   - **Explore a module**:
+     ```python
+     import math
+     help(math)  # Provides documentation about the math module
+     ```
+
+3. **What It Displays**:
+   - Description of the object or function.
+   - Its purpose and usage.
+   - Method signatures (for functions or methods).
+   - Any additional notes or examples provided in the docstring.
+
+4. **Interactive Use Case**:
+   If you're unsure what something does, simply call `help()` on it. For instance:
+   ```python
+   help(print)
+   ```
+   This will give you detailed documentation on the `print()` function.
+
+5. **Docstrings**:
+   - The `help()` function retrieves its information from **docstrings**, which are included in Python code as comments for documentation purposes (e.g., inside triple quotes `"""`).
+
+6. **Exiting Help**:
+   - If you're in the interactive help console, type `quit` or press `Ctrl+D` to exit.
+
+### Summary:
+The `help()` function is an essential tool for Python programmers, especially when learning new libraries, modules, or methods. It acts as an on-the-spot reference, saving you the need to look things up externally.
