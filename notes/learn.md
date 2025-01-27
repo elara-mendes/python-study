@@ -641,3 +641,143 @@ print(new_text)  # Output: "hi world, hello universe"
 - Works only for strings; doesn't apply to other data types.
 
 Would you like to dive deeper into either of these?
+
+Claro! Aqui vai um **sumário de funções úteis e parecidas** com `zip()` e que podem ajudar em diversas situações ao trabalhar com listas, strings, e iteráveis em Python:
+
+---
+
+### **1. `zip()`**
+- Combina elementos de duas ou mais listas em pares (ou tuplas).
+- **Exemplo:**
+  ```python
+  list1 = [1, 2, 3]
+  list2 = ['a', 'b', 'c']
+  print(list(zip(list1, list2)))  # [(1, 'a'), (2, 'b'), (3, 'c')]
+  ```
+
+---
+
+### **2. `enumerate()`**
+- Adiciona um índice a cada elemento de um iterável.
+- **Exemplo:**
+  ```python
+  fruits = ['apple', 'banana', 'cherry']
+  for index, fruit in enumerate(fruits):
+      print(index, fruit)
+  # Saída:
+  # 0 apple
+  # 1 banana
+  # 2 cherry
+  ```
+
+---
+
+### **3. `map()`**
+- Aplica uma função a cada elemento de um iterável.
+- **Exemplo:**
+  ```python
+  nums = [1, 2, 3]
+  squared = list(map(lambda x: x ** 2, nums))
+  print(squared)  # [1, 4, 9]
+  ```
+
+---
+
+### **4. `filter()`**
+- Filtra elementos de um iterável com base em uma condição.
+- **Exemplo:**
+  ```python
+  nums = [1, 2, 3, 4, 5]
+  even = list(filter(lambda x: x % 2 == 0, nums))
+  print(even)  # [2, 4]
+  ```
+
+---
+
+### **5. `itertools.product()` (da biblioteca `itertools`)**
+- Faz o produto cartesiano de dois ou mais iteráveis.
+- **Exemplo:**
+  ```python
+  from itertools import product
+  list1 = [1, 2]
+  list2 = ['a', 'b']
+  print(list(product(list1, list2)))  
+  # [(1, 'a'), (1, 'b'), (2, 'a'), (2, 'b')]
+  ```
+
+---
+
+### **6. `itertools.chain()`**
+- Junta múltiplos iteráveis em um único iterável.
+- **Exemplo:**
+  ```python
+  from itertools import chain
+  list1 = [1, 2]
+  list2 = [3, 4]
+  print(list(chain(list1, list2)))  # [1, 2, 3, 4]
+  ```
+
+---
+
+### **7. `sorted()`**
+- Retorna uma lista ordenada (sem modificar a original).
+- **Exemplo:**
+  ```python
+  nums = [3, 1, 4, 2]
+  print(sorted(nums))  # [1, 2, 3, 4]
+  ```
+
+---
+
+### **8. `reversed()`**
+- Retorna um iterador que percorre os elementos na ordem inversa.
+- **Exemplo:**
+  ```python
+  nums = [1, 2, 3]
+  print(list(reversed(nums)))  # [3, 2, 1]
+  ```
+
+---
+
+### **9. `any()`**
+- Retorna `True` se qualquer elemento do iterável for verdadeiro.
+- **Exemplo:**
+  ```python
+  nums = [0, 0, 1]
+  print(any(nums))  # True
+  ```
+
+---
+
+### **10. `all()`**
+- Retorna `True` se **todos** os elementos do iterável forem verdadeiros.
+- **Exemplo:**
+  ```python
+  nums = [1, 1, 1]
+  print(all(nums))  # True
+  ```
+
+---
+
+### **11. `range()`**
+- Gera uma sequência de números.
+- **Exemplo:**
+  ```python
+  for i in range(5):
+      print(i)
+  # Saída: 0, 1, 2, 3, 4
+  ```
+
+---
+
+### **12. `len()`**
+- Retorna o número de elementos em um iterável.
+- **Exemplo:**
+  ```python
+  text = ["hello", "world"]
+  print(len(text))  # 2
+  ```
+
+---
+
+Essas funções são extremamente úteis e combinadas, podem resolver muitos problemas de forma elegante. Se quiser mais detalhes ou exemplos de algum específico, é só falar! 😊
