@@ -1,0 +1,6 @@
+Head: 60.0%, Tail: 40.0%
+Head: 20.0%, Tail: 60.0%
+Head: 60.0%, Tail: 40.0%
+Head: 20.0%, Tail: 20.0%
+Head: 40.0%, Tail: 60.0%
+Head: 0.0%, Tail: 100.0%
