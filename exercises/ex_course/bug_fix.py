@@ -16,16 +16,25 @@
 #         x = x + 1
 # print(x) Solved
 
-length = float(input("Enter length: "))
-width = float(input("Enter width: "))
+# length = float(input("Enter length: "))
+# width = float(input("Enter width: "))
+#
+# perimeter = (length + width) * 2
+# area = length * width
+#
+# print("Perimeter is", perimeter)
+# print("Area is", area)
+#
+# if perimeter < 14 and area < 8:
+#     print("OK")
+# else:
+#     print("NOT OK") # Solved
 
-perimeter = (length + width) * 2
-area = length * width
+waiting_list = ["john", "marry"]
+name = input("Enter name: ")
 
-print("Perimeter is", perimeter)
-print("Area is", area)
-
-if perimeter < 14 and area < 8:
-    print("OK")
-else:
-    print("NOT OK") # Solved
+try:
+    number = waiting_list.index(name)
+    print(f"{name}'s turn is {number}")
+except ValueError:
+    print(f"There's no {name} in the list.") # Solved
