@@ -1,4 +1,5 @@
 from exif import Image
+import webbrowser
 
 with open('IMG_20250205_174349.jpg', 'rb') as image_file:
     my_image = Image(image_file)
@@ -50,3 +51,6 @@ else:
     latitude_calc = f"{latitude_list_mode[0]}{latitude_list_mode[1]}º{minutes}'{seconds}\"{my_image.gps_latitude_ref}"
 
 print(latitude_calc)
+
+url = f"https://www.google.com/maps/search/{latitude_calc.replace('-', '')} {longitude_calc.replace('-', '')}"
+webbrowser.open_new(url)
