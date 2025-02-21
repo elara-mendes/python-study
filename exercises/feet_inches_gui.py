@@ -5,14 +5,17 @@ def convert_to_meters(feet_value, inches_value):
     return f"{round(meters_value, 2)}"
 
 
+sg.theme("Black")
+
 text = sg.Text("Convert feet/inches to m!")
 feet_label = sg.Input(key="feet"),
 inches_label = sg.Input(key="inches"),
 button = sg.Button('Convert')
 text_m = sg.Text("")
+exit_button = sg.Button("Exit")
 
 # Create the window
-window = sg.Window('Convertor', layout=[[text], [feet_label], [inches_label], [button, text_m]])
+window = sg.Window('Convertor', layout=[[text], [feet_label], [inches_label], [button, exit_button, text_m]])
 
 while True:
     events, values = window.read()
