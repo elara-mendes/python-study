@@ -2,10 +2,14 @@ import requests, selectorlib
 import time, streamlit as st
 import plotly.express as px
 import pandas as pd
+import sqlite3
 
 URL = "https://programmer100.pythonanywhere.com/"
 
 get_date = time.strftime("%Y-%m-%d %H:%M:%S")
+
+# Create connection
+connection = sqlite3.connect(r'C:\Users\elara\Documents\GitHub\python-study\web_scrapping\data.db')
 
 def scrape(url):
     response = requests.get(url)
@@ -18,31 +22,33 @@ def extractor(source):
     return value
 
 def write_file(date, extract):
-    with open(r"C:\Users\elara\Documents\GitHub\python-study\web_scrapping\file.txt", "a") as file:
-        file.write(f"{date} / {extract}" + "\n")
+    row = ([date, extract])
+    cursor = connection.cursor()
+    cursor.execute("INSERT INTO average VALUES(?,?)", row)
+    connection.commit()
 
 def read_file():
-    with open(r"C:\Users\elara\Documents\GitHub\python-study\web_scrapping\file.txt", "r") as file:
-        return file.readlines()
+    cursor = connection.cursor()
+    cursor.execute("SELECT * FROM average")
+    row = cursor.fetchall()
+    print(row)
+    return row
 
 if __name__ == "__main__":
     scrapping = scrape(URL)
     extract_temp = extractor(scrapping)
     text = read_file()
     if extract_temp:
-        if extract_temp not in text:
-            file_text = write_file(get_date, extract_temp)
-    print(extract_temp)
-    print(get_date)
+        file_text = write_file(get_date, extract_temp)
+    # print(extract_temp)
+    # print(get_date)
 
-    text_list = []
-    for line in text:
-        text_list.append(line.split("/"))
-        print(text_list)
+    # for line in text:
+    #     new_text = [item for item in text]
+    #     print(new_text)
     
-    df = pd.DataFrame(text_list, columns=["datetime", "temperature"])
+    df = pd.DataFrame(text, columns=["datetime", "temperature"])
     df["datetime"] = pd.to_datetime(df["datetime"].str.strip())
-    df["temperature"] = df["temperature"].str.strip().astype(int)
 
     st.header("Temperatures")
 
